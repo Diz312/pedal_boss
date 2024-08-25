@@ -3,7 +3,7 @@ This repo contains the code for an application that can be used to organize and 
 Guitar pedals are used to alter the normal tone of a guitar signal before it is fed into an amplifier. 
 Modifying the signal enables tone shaping to create the desired tone of the guitar.
 Proprietary pedals have been reversed engineered and various vendors offer PCBs to create clones of original pedals at fraction of cost.
-Code in this repo will help a hobyist to manage pedal BOMs, inventory and overall build process. 
+Code in this repo will help a hobbyist to manage pedal BOMs, inventory and overall build process. 
 
 Why I built this: 
 
