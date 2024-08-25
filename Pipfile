@@ -11,6 +11,7 @@ langchainhub = "*"
 pypdf2 = "*"
 requests = "*"
 bs4 = "*"
+pyyaml = "*"
 
 [dev-packages]
 
