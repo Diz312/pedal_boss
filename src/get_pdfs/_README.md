@@ -1,7 +1,7 @@
 # GET_PDFS
-Modules here will scra a site and downlaod the PDFs in this sequence of steps:
+Modules here will scrape the pedalpcb.copk site and create to create a JSON file. This JSON file will be used to create vector embedding representing all the products the site has to offer and will also be used as the directory of PDF files to be donwloaded. 
+
 ## STEP 1
-Scrape_download_list: scrapes the pedalpcb.com website and creates a JSON file with pedal PDFs, and reviews. This JSON file will be used later in the application to create the product vector DB as well that will be used for RAG 
+Scrape_download_list: scrapes the pedalpcb.com website and creates a JSON file with pedal PDFs.
 ## STEP 2
 Get_build_pdfs: runs multithreaded and downloads the PDFs from JSON file created in Step 1
-
