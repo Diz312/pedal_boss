@@ -83,6 +83,24 @@ def prepare_download_list(product_urls):
                 # Create a path from crumbs while dropping the first crumb as its the HOME crumb and prepare the product_name.
                 # product_name will be used as the actual PDF file name later on when downloading.                 
                 product_name=re.sub(r'[^a-zA-Z0-9]', '', product_name)    
+
+                # Scrape the reviews from rank-math-schema class
+                script_tag = soup.find('script', type='application/ld+json', class_='rank-math-schema')
+                if script_tag:
+                    json_data = json.loads(script_tag.string)
+                    product_data = next((item for item in json_data['@graph'] if item['@type'] == 'Product'), None)
+                    if product_data and 'review' in product_data:
+                        for review in product_data['review']:
+                            review_text = review.get('description', '').strip()
+                            rating = int(review['reviewRating']['ratingValue'])
+                            max_rating = int(review['reviewRating']['bestRating'])
+                            author = review['author']['name']
+                            reviews.append({
+                                'Review Text': review_text,
+                                'Rating': rating,
+                                'Max Rating': max_rating,
+                                'Author': author
+                            })
                 
                 # Add the build files (including FileName, BreadCrumbs and link to the list of files to download)
                 for link in pdf_links:  
