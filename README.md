@@ -13,6 +13,7 @@ App features published:
 Scrape the PedalPCB site for all build PDFs
 
 App features still under construction:
+
 Extract text from PDFs and run through a LangChain to extract standardized BOMS
 Store the BOM of each pedal 
 Store my inventory of components 
