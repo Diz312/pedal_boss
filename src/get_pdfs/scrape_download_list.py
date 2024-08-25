@@ -158,4 +158,3 @@ if __name__ == "__main__":
 
     # Create the list of files to download
     prepare_download_list(product_urls)
-    print ('end')
