@@ -5,19 +5,19 @@ Modifying the signal enables tone shaping to create the desired tone of the guit
 Proprietary pedals have been reversed engineered and various vendors offer PCBs to create clones of original pedals at fraction of cost.
 Code in this repo will help a hobbyist to manage pedal BOMs, inventory and overall build process. 
 
-## Why I built this: 
+## Why I built this
 Primarily to study coding concepts including LangChain. To have a simple app that can help me manage my pedal builds and parts inventory
 
-## App features published: 
+## App features published
 1. src/get_pdfs/scrpae_donwload_list.py
    
-## App features still under construction:
+## App features still under construction
 1. Extract text from PDFs and run through a LangChain to extract standardized BOMS
 2. Store the BOM of each pedal 
 3. Store my inventory of components 
 4. Simple UI where I select the pedal to build and the app checks inventory 
 
-## Tools I'm using:
+## Tools I'm using
 1. VS Code as IDE and using pipenv to manage environment
 2. LangChain and GPT3.5 Turbo
 3. REDIS for DB 
