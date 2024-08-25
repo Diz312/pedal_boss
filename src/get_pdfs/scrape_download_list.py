@@ -22,6 +22,9 @@ def fetch_product_urls(sitemap_url):
         if 'product' in loc.lower():
             product_urls.append(loc)
     
+    # with open (prod_urls, 'w') as file:
+    #     json.dump(product_urls, file)
+
     return product_urls
 
 def prepare_download_list(product_urls):
@@ -32,7 +35,8 @@ def prepare_download_list(product_urls):
         product_name = ""
         crumbs = set()
         pdf_links = set()
-        download_path = []
+        download_crumbs = []
+        reviews=[]
         
         try:
             response = requests.get(url)
@@ -48,7 +52,7 @@ def prepare_download_list(product_urls):
                 else:
                     print(link, " doesn't have a Build Documentation PDF")
 
-            # IF there is Build documentation then for each build doc find the bread crumbs and to the  list of download paths
+            # If there is Build documentation then for each build doc find the bread crumbs and to the  list of download paths
             if pdf_links:
                  # Find the navigation class 'woocommerce-breadcrumb breadcrumbs'
                 nav = soup.find('nav', class_='woocommerce-breadcrumb breadcrumbs')
@@ -66,7 +70,7 @@ def prepare_download_list(product_urls):
                     modified_text = [token.upper() for token in re.split(pattern, text) if token]
 
                     # Add breadcrumbs to create a path
-                    download_path.extend(modified_text)
+                    download_crumbs.extend(modified_text)
 
                 # Find the header element that contains the name of product
                 product_name = soup.find('h1', class_='product-title product_title entry-title').get_text().strip()
@@ -79,13 +83,14 @@ def prepare_download_list(product_urls):
                 # Create a path from crumbs while dropping the first crumb as its the HOME crumb and prepare the product_name.
                 # product_name will be used as the actual PDF file name later on when downloading.                 
                 product_name=re.sub(r'[^a-zA-Z0-9]', '', product_name)    
-            
+                
                 # Add the build files (including FileName, BreadCrumbs and link to the list of files to download)
                 for link in pdf_links:  
                     final_results.append({
                         'Product Name': product_name,
-                        'Type': download_path[-1],
-                        'URL': link
+                        'Type': download_crumbs[-1],
+                        'URL': link,
+                        'Reviews': reviews
                     })
                 print (link, "added to download list")
             
@@ -96,7 +101,7 @@ def prepare_download_list(product_urls):
             print(f"Failed to process {url}: {str(e)}")
     
     # Return the final results as a list of dictionaries, which is a JSON-serializable structure
-    with open(download_file, "w") as json_file:
+    with open(prod_file, "w") as json_file:
         json.dump(final_results, json_file, indent=4)
 
 if __name__ == "__main__":
@@ -107,12 +112,23 @@ if __name__ == "__main__":
         config = yaml.safe_load(config_file)
 
     # Set global variables
+    # set the relative path to the tmp directory - check config file and make sure the right level is set
+    tmp_path = os.path.join(
+        os.path.dirname(__file__), 
+        os.path.normpath (config['tmp_path'])
+    )
+    
+    # Set global file variables
     sitemap_url = config['sitemap_url']
-    download_path = os.path.normpath(config['download_path'])
-    download_path = os.path.join(os.path.dirname(__file__), download_path)
+    prod_urls=os.path.join(tmp_path, config['prod_urls'])
+    prod_file = os.path.join(tmp_path, config['prod_file'])
     
     #get a list of all "product" URLs from the sitemap
     product_urls = fetch_product_urls(sitemap_url)
-    
+
+    with open(prod_urls,'r') as file:
+        product_urls=json.load(file)
+
     #create the list of files to download
     prepare_download_list(product_urls)
+    print ('end')
