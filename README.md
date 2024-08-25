@@ -12,13 +12,13 @@ Primarily to study coding concepts including LangChain. To have a simple app tha
 1. src/get_pdfs/scrpae_donwload_list.py
    
 # App features still under construction:
-1Extract text from PDFs and run through a LangChain to extract standardized BOMS
-2Store the BOM of each pedal 
-3Store my inventory of components 
-4Simple UI where I select the pedal to build and the app checks inventory 
+1. Extract text from PDFs and run through a LangChain to extract standardized BOMS
+2. Store the BOM of each pedal 
+3. Store my inventory of components 
+4. Simple UI where I select the pedal to build and the app checks inventory 
 
 # Tools I'm using:
-1VS Code as IDE and using pipenv to manage environment
-2LangChain and GPT3.5 Turbo
-3REDIS for DB 
+1. VS Code as IDE and using pipenv to manage environment
+2. LangChain and GPT3.5 Turbo
+3. REDIS for DB 
 
