@@ -1,18 +1,18 @@
 # pedal_boss
 This repo contains the code for an application that can be used to organize and manage building of guitar pedals. 
-Guitar pedals are used to alter the normal tone of a guitar signal before it is fed into an amplifier 
-Modifying the signal enables tone shaping to create the desired tone of the guitar
-Proprietary pedal design have been reversed engineered and various vendors offer PCBs to create clones of original pedals at fraction of cost
+Guitar pedals are used to alter the normal tone of a guitar signal before it is fed into an amplifier. 
+Modifying the signal enables tone shaping to create the desired tone of the guitar.
+Proprietary pedals have been reversed engineered and various vendors offer PCBs to create clones of original pedals at fraction of cost.
+Code in this repo will help a hobyist to manage pedal BOMs, inventory and overall build process. 
 
 Why I built this: 
 Primarily to study coding concepts including LangChain
-Simple inventory management so I know what pedals I can build or when I have to order additional components 
+To have a simple app that can help me manage my pedal builds and parts inventory
 
-
-App features: 
+App features published: 
 Scrape the PedalPCB site for all build PDFs
 
-----BELOW FEATURES ARE WIP------------
+App features still under construction:
 Extract text from PDFs and run through a LangChain to extract standardized BOMS
 Store the BOM of each pedal 
 Store my inventory of components 
