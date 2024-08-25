@@ -11,7 +11,7 @@ def fetch_product_urls(sitemap_url):
     response = requests.get(sitemap_url)
     namespace = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
    
-    # REad the XML and create an XML Element Tree for parsing
+    # Read the XML and create an XML Element Tree for parsing
     tree = ET.ElementTree(ET.fromstring(response.content))
     root = tree.getroot()
     
@@ -21,9 +21,6 @@ def fetch_product_urls(sitemap_url):
         loc = url.find('ns:loc', namespace).text
         if 'product' in loc.lower():
             product_urls.append(loc)
-    
-    # with open (prod_urls, 'w') as file:
-    #     json.dump(product_urls, file)
 
     return product_urls
 
@@ -57,8 +54,9 @@ def prepare_download_list(product_urls):
                  # Find the navigation class 'woocommerce-breadcrumb breadcrumbs'
                 nav = soup.find('nav', class_='woocommerce-breadcrumb breadcrumbs')
                 if not nav:
+                    # Skip this product if no breadcrumbs found
                     print(pdf_links, " doesn't have breadcrumbs")
-                    continue # Skip this product if no breadcrumbs found
+                    continue 
                 
                 # Extract all 'a' tags within this navigation structure
                 crumbs = nav.find_all('a')
@@ -77,14 +75,15 @@ def prepare_download_list(product_urls):
                 
                 # If there is no product name skip to next URL 
                 if not product_name: 
+                    # Skip this product if no Product Title found
                     print(pdf_links," doesn't have Product Title")
-                    continue # Skip this product if no Product Title found
+                    continue 
 
                 # Create a path from crumbs while dropping the first crumb as its the HOME crumb and prepare the product_name.
                 # product_name will be used as the actual PDF file name later on when downloading.                 
                 product_name=re.sub(r'[^a-zA-Z0-9]', '', product_name)    
 
-                # Scrape the reviews from rank-math-schema class
+                # Scrape the reviews from rank-math-schema
                 script_tag = soup.find('script', type='application/ld+json', class_='rank-math-schema')
                 if script_tag:
                     json_data = json.loads(script_tag.string)
@@ -113,7 +112,8 @@ def prepare_download_list(product_urls):
                 print (link, "added to download list")
             
             else:
-                continue # Skip this product if no build doco found
+                # Skip this product if no build doco found
+                continue
                     
         except requests.RequestException as e:
             print(f"Failed to process {url}: {str(e)}")
@@ -124,7 +124,7 @@ def prepare_download_list(product_urls):
 
 if __name__ == "__main__":
     
-    #Load the environment variables from config.yaml
+    # Load the environment variables from config.yaml
     yaml_path=os.path.join(os.path.dirname(__file__), 'config.yaml')
     with open(yaml_path) as config_file:
         config = yaml.safe_load(config_file)
@@ -141,12 +141,21 @@ if __name__ == "__main__":
     prod_urls=os.path.join(tmp_path, config['prod_urls'])
     prod_file = os.path.join(tmp_path, config['prod_file'])
     
-    #get a list of all "product" URLs from the sitemap
+    # Get a list of all "product" URLs from the sitemap. 
     product_urls = fetch_product_urls(sitemap_url)
 
+    # TEST-ALT1
+    # Use the lines below to capture the URLS in local file for manipulation and local testing (so you are not scraping every product while testing)
+    # otherwise the method returns the full URL list to the MAIN
+    
+    # # Run this only create the initial URL file that can be manipulated
+    # with open (prod_urls, 'w') as file:
+    #     json.dump(product_urls, file)
+
+    # Run this if/once the file exists
     with open(prod_urls,'r') as file:
         product_urls=json.load(file)
 
-    #create the list of files to download
+    # Create the list of files to download
     prepare_download_list(product_urls)
     print ('end')
