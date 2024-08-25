@@ -1,2 +1,2 @@
 sitemap_url: "https://www.pedalpcb.com/sitemap.xml"
-download_file: "storage/tmp/pcb_products.json"
+download_path: "../../storage/tmp/pcb_products.json"

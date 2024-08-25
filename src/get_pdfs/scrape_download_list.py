@@ -102,13 +102,14 @@ def prepare_download_list(product_urls):
 if __name__ == "__main__":
     
     #Load the environment variables from config.yaml
-    with open('config.yaml') as config_file:
+    yaml_path=os.path.join(os.path.dirname(__file__), 'config.yaml')
+    with open(yaml_path) as config_file:
         config = yaml.safe_load(config_file)
 
     # Set global variables
     sitemap_url = config['sitemap_url']
-    download_file = config['download_file']
-    download_file = os.path.abspath(download_file)
+    download_path = os.path.normpath(config['download_path'])
+    download_path = os.path.join(os.path.dirname(__file__), download_path)
     
     #get a list of all "product" URLs from the sitemap
     product_urls = fetch_product_urls(sitemap_url)
