@@ -9,16 +9,16 @@ Code in this repo will help a hobbyist to manage pedal BOMs, inventory and overa
 Primarily to study coding concepts including LangChain. To have a simple app that can help me manage my pedal builds and parts inventory
 
 # App features published: 
-Scrape the PedalPCB site for all build PDFs
-
+1. src/get_pdfs/scrpae_donwload_list.py
+   
 # App features still under construction:
-Extract text from PDFs and run through a LangChain to extract standardized BOMS
-Store the BOM of each pedal 
-Store my inventory of components 
-Simple UI where I select the pedal to build and the app checks inventory 
+1Extract text from PDFs and run through a LangChain to extract standardized BOMS
+2Store the BOM of each pedal 
+3Store my inventory of components 
+4Simple UI where I select the pedal to build and the app checks inventory 
 
 # Tools I'm using:
-VS Code as IDE and using pipenv to manage environment
-LangChain and GPT3.5 Turbo
-REDIS for DB 
+1VS Code as IDE and using pipenv to manage environment
+2LangChain and GPT3.5 Turbo
+3REDIS for DB 
 
