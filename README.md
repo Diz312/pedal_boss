@@ -21,6 +21,7 @@ App features still under construction:
 -Simple UI where I select the pedal to build and the app checks inventory 
 
 Tools used:
+
 -VS Code as IDE and using pipenv to manage environment
 -LangChain and GPT3.5 Turbo
 -REDIS for DB 
