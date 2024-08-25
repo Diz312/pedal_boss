@@ -19,7 +19,7 @@ Store the BOM of each pedal
 Store my inventory of components 
 Simple UI where I select the pedal to build and the app checks inventory 
 
-Tools used: 
+Tools used:
 VS Code as IDE and using pipenv to manage environment
 LangChain and GPT3.5 Turbo
 REDIS for DB 
