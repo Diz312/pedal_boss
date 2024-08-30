@@ -1,0 +1,8 @@
+# config.yaml
+
+## get_pdfs config
+sitemap_url: "https://www.pedalpcb.com/sitemap-1.xml"
+tmp_path: "storage/tmp"
+prod_file: "pcb_products.json"
+prod_urls: "pcb_product_urls.json"
+## get_pdfs config
