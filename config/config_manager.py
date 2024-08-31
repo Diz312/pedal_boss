@@ -25,9 +25,10 @@ class ConfigManager:
                 # Then, expand environment variables
                 cls._config[key] = os.path.expandvars(cls._config[key])
 
+#Usage 
 config = ConfigManager.get_config()
 
-# Usage
+# To run the config manager
 if __name__ == "__main__":
     config = ConfigManager.get_config()
     print(config)
