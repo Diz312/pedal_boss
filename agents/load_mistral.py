@@ -3,7 +3,7 @@ import os
 # Add the project root directory to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))    
 
-from langchain_community.llms import LlamaCpp
+from langchain_community.llms import CTransformers
 from config.config_manager import config
 
 class Mistral:
@@ -23,23 +23,22 @@ class Mistral:
         self.verbose = verbose
         self.temperature = temperature
 
-    def create_instance(self) -> LlamaCpp:
+    def create_instance(self) -> CTransformers:
         """
-        Creates and returns a local Llama instance using LlamaCpp.
+        Creates and returns a local Llama instance using CTransformers.
 
         Returns:
-            LlamaCpp: An instance of the local Llama model.
+            CTransformers: An instance of the local Llama model.
         """
-        llm = LlamaCpp(
-            model_path=self.model_path,
-            n_gpu_layers=self.n_gpu_layers,
-            n_batch=self.n_batch,
-            n_ctx=self.n_ctx,
-            verbose=self.verbose,
-            temperature=self.temperature
+        return CTransformers(
+            model=self.model_path,
+            model_type="mistral",
+            config={
+                'max_new_tokens': 1024,
+                'temperature': self.temperature,
+                'gpu_layers': self.n_gpu_layers,
+            }
         )
-        
-        return llm
 
 if __name__ == "__main__":
     model = Mistral(model_path=config['latest_mistral_model'])
