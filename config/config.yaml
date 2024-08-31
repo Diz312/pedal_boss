@@ -11,7 +11,5 @@ prod_urls: "pcb_product_urls.json"
 llama_model_path: "%USERPROFILE%/.ollama/models"  # path to the llama model
 llama_blobs: "{llama_model_path}/blobs"
 latest_mistral_model: "{llama_blobs}/sha256-ff82381e2bea77d91c1b824c7afb83f6fb73e9f7de9dda631bcdbca564aa5435"
-
+n_gpu_layers: "10"
 ## agents
-
-
