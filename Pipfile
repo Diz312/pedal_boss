@@ -12,6 +12,7 @@ pypdf2 = "*"
 requests = "*"
 bs4 = "*"
 pyyaml = "*"
+llama-cpp-python = "*"
 
 [dev-packages]
 
