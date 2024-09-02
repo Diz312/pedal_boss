@@ -18,6 +18,7 @@ class Mistral:
         self.repetition_penalty = 1.1
         self.model_path = config['latest_mistral_model']
         self.n_gpu_layers = int(config['n_gpu_layers'])
+    
     def create_instance(self) -> CTransformers:
         try:
             model = CTransformers(
@@ -38,7 +39,8 @@ class Mistral:
             print(f"Error creating Mistral instance: {e}")
             raise
 
-# Test the model with user input and print output
+# Usage
 if __name__ == "__main__":
-    model = Mistral().create_instance()
-    print(model)
+   help(CTransformers)
+    # model = Mistral().create_instance()
+    # print(model)
