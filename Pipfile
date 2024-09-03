@@ -18,6 +18,8 @@ torch = "*"
 transformers = "*"
 langchain-ollama = "*"
 langchain-core = "*"
+langgraph = "*"
+langsmith = "*"
 
 [dev-packages]
 

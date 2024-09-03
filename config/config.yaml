@@ -1,12 +1,17 @@
 # config.yaml
 
-## get_pdfs
+## scraping PDFs
 sitemap_url: "https://www.pedalpcb.com/sitemap-1.xml"
-tmp_path: "storage/tmp"
-prod_file: "pcb_products.json"
-prod_urls: "pcb_product_urls.json"
-## get_pdfs
+pdf_build_keyword: "build"
+scraped_text_dir: "storage/scrapes"
 
-## agents 
+## API Keys
 openai_api_key: "${OPENAI_API_KEY}"
-## agents
+langchain_api_key: "${LANGCHAIN_API_KEY}"
+tavily_api_key: "${TAVILY_API_KEY}"
+langsmith_api_key: "${LANGSMITH_API_KEY}"
+
+## Tracing
+langsmith_tracing_v2: "${LANGSMITH_TRACING_V2}"
+
+
