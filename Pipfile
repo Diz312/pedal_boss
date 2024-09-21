@@ -20,6 +20,9 @@ langchain-ollama = "*"
 langchain-core = "*"
 langgraph = "*"
 langsmith = "*"
+pypdf = "*"
+redis = "*"
+langchain-redis = "*"
 
 [dev-packages]
 
