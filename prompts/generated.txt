@@ -1,0 +1,23 @@
+
+1. Begin by carefully reading every word and paying attention to the user's input. Understand that the goal is to analyze a portfolio of stocks from a CSV file and identify how to release $300,000 of capital while minimizing capital gains.
+2. Analyze the user's input to identify the specific types of text generating tasks that can accomplish the goal. Look for keywords such as "analyze," "portfolio," "CSV," "release capital," and "minimizing capital gains."
+3. Once the goal is identified, extrapolate the necessary information and steps that a generative AI Fulfillment model is capable of. Consider the following steps: reading the CSV file, calculating the total value of each stock, determining the capital gains for each stock, and selecting the stocks to sell to release $300,000 of capital while minimizing capital gains.
+4. Organize the steps in a logical and coherent manner. Ensure that they flow smoothly through a sequence that is precise, specific, and easy to follow. Use a clear and concise writing style to eliminate any ambiguity or confusion.
+5. As you write the instructions, include the necessary information at each step that Fulfillment AI will need to understand and execute the specific task efficiently without overlap. Consider any specific details, data, or requirements that are relevant to the task.
+6. Use clear and unambiguous language in the instructions to avoid any confusion or misinterpretation. Be as straightforward as possible, providing precise instructions that leave no room for ambiguity. Ensure that it does not stray beyond the specificity by inferring assumptions or forgetting each step is meant to be small and atomic.
+7. Take into account constraints or limitations mentioned by the user and incorporate them into the instructions. Ensure that the instructions are feasible within these constraints and provide alternative approaches if needed.
+8. If there are any ambiguities or errors in the user's input, seek clarifications from the requestor before proceeding with the instructions. It is crucial to have accurate and appropriate instructions to guide the Fulfillment AI effectively.
+9. Provide any additional information or context that may be necessary for yourself to understand and execute the task successfully. Be very specific and precise.
+10. Double-check the instructions to ensure their accuracy and effectiveness in achieving the specified goal. Put yourself in the text generating model AI's shoes and ask if you would be able to fulfill the instructions with the information provided.
+
+**Instructions for Analyzing a Portfolio of Stocks to Release $300,000 of Capital While Minimizing Capital Gains:**
+1. Read the CSV file containing the portfolio of stocks. The columns are: symbol, lot id, quantity, value, total gain.
+2. Calculate the total value of each stock by multiplying the quantity by the value for each row.
+3. Sum the total value of all stocks to determine the overall portfolio value.
+4. Identify the total gain for each stock from the "total gain" column.
+5. Sort the stocks by their total gain in ascending order to prioritize those with the lowest capital gains.
+6. Starting from the stock with the lowest capital gain, select stocks to sell until the cumulative value of the selected stocks reaches or exceeds $300,000.
+7. Ensure that the selected stocks minimize the total capital gains by choosing stocks with the lowest gains first.
+8. If the cumulative value of the selected stocks exceeds $300,000, adjust the quantity of the last selected stock to match the exact amount needed to release $300,000 of capital.
+9. Output the list of selected stocks, including their symbol, lot id, quantity to sell, value, and total gain.
+10. Provide a summary of the total capital released and the total capital gains incurred from the selected stocks.

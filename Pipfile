@@ -23,6 +23,8 @@ langsmith = "*"
 pypdf = "*"
 redis = "*"
 langchain-redis = "*"
+xmind = "*"
+pandas = "*"
 
 [dev-packages]
 

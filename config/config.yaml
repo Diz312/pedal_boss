@@ -17,4 +17,21 @@ langsmith_api_key: "${LANGSMITH_API_KEY}"
 ## Tracing
 langsmith_tracing_v2: "${LANGSMITH_TRACING_V2}"
 
+## Goal
+minimize_capital_gains: |
+  Analyze a portfolio of stocks, which will be uploaded as a CSV. 
+  The CSV columns are: symbol, lot id, quantity, value, total gain (assumed to be long term capital gains).
+  Analyze the portfolio and identify how to release 300k of capital while minimizing capital gains.
 
+## Goal
+fix_painful_knee: |
+  As and expert physical therapist you are given a patient with a painful knee and you need to provide a treatment plan to fix the patient's knee.
+
+## Goal
+summarize_contract: |
+  Provide concise and accurate answers to questions related to realestate taxes and strategies to minimize tax amounts for hoe owners.   
+
+## Goal
+write_resume: |
+  Read a resume that will be uploaded. Update the resume to help the entry level candidate get an interview. The resume is for a data engineer who is finishing up their bachelor's degree in computer science and has a passion for data analytics.
+  In addition to their school work this person spends their own time on getting entry level AWS certifications and learning advanced Python concepts for data engineering and genAi. 
